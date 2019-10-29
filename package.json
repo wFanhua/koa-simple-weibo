@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "node ./src/index.js",
     "lint": "eslint src/**/*.js",
     "lint-fix": "eslint --fix src/**/*.js",
     "commit": "git-cz",
@@ -16,10 +17,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@koa/cors": "^2.2.3",
     "dotenv": "^8.2.0",
     "koa": "^2.10.0",
     "koa-bodyparser": "^4.2.1",
+    "koa-onerror": "^4.1.0",
     "koa-router": "^7.4.0",
+    "lodash": "^4.17.15",
     "mysql2": "^1.7.0",
     "sequelize": "^5.21.1"
   },
@@ -29,6 +33,7 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
+    "jest": "^24.9.0",
     "lint-staged": "^9.4.2",
     "sequelize-cli": "^5.5.1",
     "yorkie": "^2.0.0"

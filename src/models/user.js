@@ -32,9 +32,8 @@ module.exports = (sequelize, DataTypes) => {
       comment: '城市',
     },
   }, {});
-  // eslint-disable-next-line no-unused-vars
-  User.associate = function (models) {
-    // associations can be defined here
-  };
+  // User.associate = function (models) {
+  //   // associations can be defined here
+  // };
   return User;
 };
