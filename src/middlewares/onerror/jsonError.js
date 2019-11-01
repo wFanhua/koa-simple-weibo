@@ -1,3 +1,8 @@
 module.exports = (err, ctx) => {
-  ctx.body = { error: err.message || '请求错误' };
+  const { errorRes } = err;
+  if (errorRes) {
+    ctx.body = errorRes;
+  } else {
+    ctx.body = { errno: -1, message: err.message };
+  }
 };
