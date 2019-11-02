@@ -1,10 +1,11 @@
 const jwt = require('koa-jwt');
 const error = require('./error');
 const whiteList = require('./whitelist');
+const { JWT_SECRET } = require('../../constants/jwt');
 
 module.exports = (app) => {
   app.use(jwt({
-    secret: process.env.JWT_SECRET || '12345wfh09876',
+    secret: JWT_SECRET,
     passthrough: true,
     getToken(ctx) {
       // 从headers的jwt-token字段中读取token
