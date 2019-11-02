@@ -3,7 +3,7 @@
  * @author wfh
  */
 
-const { getUserInfo, createUser } = require('../../service/user');
+const { getUserInfo, createUser } = require('../../services/user');
 const { USER_IS_EXIST_C_M } = require('../../constants/user');
 const { toFailRes, toSuccessRes } = require('../../utils/formatRes');
 const { jwtSign } = require('../../utils/jwt');

@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const { isExist, register } = require('../../controller/v1/user');
+const { isExist, register } = require('../../controllers/v1/user');
 
 const router = new Router({
   prefix: '/api/user',
