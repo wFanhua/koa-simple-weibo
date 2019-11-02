@@ -4,6 +4,7 @@
  */
 
 const db = require('../models/index');
+const { cryptoPassword } = require('../utils/cryp');
 const { formatUsers } = require('./format/index');
 
 /**
@@ -44,7 +45,7 @@ async function createUser({
 }) {
   const user = await db.User.create({
     userName,
-    password,
+    password: cryptoPassword(password),
     gender,
     nickName: nickName || userName,
   });
