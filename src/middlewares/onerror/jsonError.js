@@ -1,8 +1,10 @@
+const { toFailRes } = require('../../utils/formatRes');
+
 module.exports = (err, ctx) => {
-  const { errorRes } = err;
-  if (errorRes) {
-    ctx.body = errorRes;
+  const { ctxBody } = err;
+  if (ctxBody) {
+    ctx.body = ctxBody;
   } else {
-    ctx.body = { errno: -1, message: err.message };
+    ctx.body = toFailRes(-1, err.message);
   }
 };
