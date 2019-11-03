@@ -11,8 +11,8 @@ const schema = {
     userName: {
       type: 'string',
       pattern: '^[a-zA-Z][a-zA-Z0-0_]+$',
-      maxLength: 255,
-      minLength: 2,
+      maxLength: 20,
+      minLength: 6,
     },
     password: {
       type: 'string',

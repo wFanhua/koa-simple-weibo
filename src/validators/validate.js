@@ -4,6 +4,7 @@
  */
 
 const Ajv = require('ajv');
+const localize = require('ajv-i18n');
 
 const ajv = new Ajv({
   // allErrors: true, // 输出所有错误
@@ -17,7 +18,10 @@ const ajv = new Ajv({
  */
 function validateSync(schema, payload = {}) {
   const valid = ajv.validate(schema, payload);
-  return valid ? [null] : [ajv.errors[0]];
+  if (valid) return [null];
+
+  localize.zh(ajv.errors);
+  return [ajv.errors[0]];
 }
 
 module.exports = {
