@@ -19,7 +19,7 @@ async function getUserInfo(username, password) {
     username,
   };
 
-  if (password) Object.assign(whereOpt, { password });
+  if (password) Object.assign(whereOpt, { password: cryptoPassword(password) });
 
   // 查询
   const user = await db.User.findOne({
@@ -30,6 +30,24 @@ async function getUserInfo(username, password) {
   // 格式化信息
   const result = user && formatUsers(user.dataValues);
 
+  return result;
+}
+
+/**
+ * 根据用户id查询用户信息
+ * @param {Number} userId 用户id
+ */
+async function getUserInfoWithId(userId) {
+  const whereOpt = {
+    id: userId,
+  };
+  const user = await db.User.findOne({
+    attributes: ['id', 'userName', 'nickName', 'gender', 'picture', 'city'],
+    where: whereOpt,
+  });
+  if (user === null) return null;
+
+  const result = user && formatUsers(user.dataValues);
   return result;
 }
 
@@ -56,4 +74,5 @@ async function createUser({
 module.exports = {
   getUserInfo,
   createUser,
+  getUserInfoWithId,
 };
